@@ -10,7 +10,7 @@ blocks:
       prologue:
         commands:
           - softwareupdate --list
-          - sudo softwareupdate -i macOS
+          - sudo softwareupdate --install 'Command Line Tools (macOS Mojave version 10.14) for Xcode-10.2'
           - softwareupdate --list
       jobs:
         - name: npm install and cache
