@@ -10,8 +10,7 @@ blocks:
       prologue:
         commands:
           - softwareupdate --list
-          - softwareupdate -i -a --restart
-          - sudo reboot
+          - softwareupdate -i -a
           - softwareupdate --list
           - brew tap wix/brew
           - brew install applesimutils

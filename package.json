@@ -6,7 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "detox-build": "detox build",
-    "detox-test": "detox build",
+    "detox-test": "detox test",
     "lint": "eslint **/*.js"
   },
   "dependencies": {
@@ -18,7 +18,7 @@
     "@babel/runtime": "^7.4.4",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
-    "detox": "^12.0.0",
+    "detox": "^12.7.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "eslint": "^5.16.0",
