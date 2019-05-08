@@ -6,7 +6,7 @@ agent:
     os_image: macos-mojave
   containers:
     - name: node             
-      image: node:10.13.0
+      image: node
 blocks:
   - name: Install dependencies
     task:
