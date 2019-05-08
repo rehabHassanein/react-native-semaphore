@@ -5,3 +5,25 @@ agent:
     type: a1-standard-4
     os_image: macos-mojave
 blocks:
+  - name: Install dependencies
+    task:
+      jobs:
+        - name: npm install and cache
+          commands:
+            # Get the latest version of our source code from GitHub:
+            - checkout
+
+            # Use the version of Node.js specified in .nvmrc.
+            # Semaphore provides nvm preinstalled.
+            - nvm use
+
+            # Restore dependencies from cache. This command will not fail in
+            # case of a cache miss. In case of a cache hit, npm install will
+            # run very fast.
+            # For more info on caching, see https://docs.semaphoreci.com/article/68-caching-dependencies
+            - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - npm install
+
+            # Store the latest version of node modules in cache to reuse in
+            # further blocks:
+            - cache store node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) node_modules
