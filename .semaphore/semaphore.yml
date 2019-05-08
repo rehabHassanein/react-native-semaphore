@@ -9,8 +9,7 @@ blocks:
     task:
       prologue:
         commands:
-          - brew tap wix/brew
-          - brew install applesimutils
+          - softwareupdate --list
       jobs:
         - name: npm install and cache
           commands:
