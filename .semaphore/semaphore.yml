@@ -9,10 +9,8 @@ blocks:
     task:
       prologue:
         commands:
-          - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-          - source ~/.nvm/nvm.sh
-          - nvm install
-          - nvm use
+          - brew tap wix/brew
+          - brew install applesimutils
       jobs:
         - name: npm install and cache
           commands:
