@@ -7,6 +7,10 @@ agent:
 blocks:
   - name: Install dependencies
     task:
+      prologue:
+        commands:
+          - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+          - nvm install node
       jobs:
         - name: npm install and cache
           commands:
