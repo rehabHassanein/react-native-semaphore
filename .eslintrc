@@ -18,6 +18,9 @@
   },
   "globals": {
     "fetch": true,
+    "it": true,
+    "expect": true,
+    "describe": true,
     "__DEV__": true
   }
 }
