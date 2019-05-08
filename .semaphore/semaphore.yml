@@ -10,8 +10,10 @@ blocks:
       prologue:
         commands:
           - softwareupdate --list
-          - softwareupdate -i -a
+          - softwareupdate -i -a --restart
           - softwareupdate --list
+          - brew tap wix/brew
+          - brew install applesimutils
       jobs:
         - name: npm install and cache
           commands:
