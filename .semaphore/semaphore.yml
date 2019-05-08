@@ -10,6 +10,9 @@ blocks:
       prologue:
         commands:
           - softwareupdate --list
+          - xcversion update
+          - sudo softwareupdate -i macOS 10.14.4 Update-
+          - softwareupdate --list
       jobs:
         - name: npm install and cache
           commands:
