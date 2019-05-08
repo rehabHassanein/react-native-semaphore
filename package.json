@@ -47,7 +47,7 @@
     "configurations": {
       "ios.sim.debug": {
         "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/ReactNativeSemaphore.app",
-        "build": "xcodebuild -project ios/ReactNativeSemaphore.xcodeproj -scheme ReactNativeSemaphore -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "build": "xcodebuild -project ios/ReactNativeSemaphore.xcodeproj -scheme ReactNativeSemaphore -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=NO",
         "type": "ios.simulator",
         "name": "iPhone 7"
       }
