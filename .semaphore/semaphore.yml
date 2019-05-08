@@ -11,6 +11,7 @@ blocks:
         commands:
           - softwareupdate --list
           - softwareupdate -i -a --restart
+          - sudo reboot
           - softwareupdate --list
           - brew tap wix/brew
           - brew install applesimutils
