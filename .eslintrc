@@ -14,7 +14,8 @@
         "ignoreComments": true,
         "code": 250
       }
-    ]
+    ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["e2e/*.js", "__tests__/**/*.js"]}]
   },
   "globals": {
     "fetch": true,
@@ -27,6 +28,8 @@
     "by": true,
     "element": true,
     "jest": true,
-    "jasmine": true
+    "jasmine": true,
+    "beforeAll": true,
+    "afterAll": true
   }
 }
