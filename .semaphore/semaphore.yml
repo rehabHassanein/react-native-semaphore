@@ -27,3 +27,30 @@ blocks:
             # Store the latest version of node modules in cache to reuse in
             # further blocks:
             - cache store node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) node_modules
+  - name: Run linter
+    task:
+      prologue:
+        commands:
+          - checkout
+      jobs:
+        - name: run eslint
+          commands:
+            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - npm run lint
+  - name: Run tests
+    task:
+      prologue:
+        commands:
+          - checkout
+          - brew tap wix/brew
+          - brew install applesimutils
+      jobs:
+        - name: unit and integration tests
+          commands:
+            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - npm test
+        - name: e2e tests
+          commands:
+            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - npm run detox-build
+            - npm run detox-test
