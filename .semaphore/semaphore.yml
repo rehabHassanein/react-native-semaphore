@@ -7,13 +7,6 @@ agent:
 blocks:
   - name: Install dependencies
     task:
-      prologue:
-        commands:
-          - softwareupdate --list
-          - softwareupdate -i -a
-          - softwareupdate --list
-          - brew tap wix/brew
-          - brew install applesimutils
       jobs:
         - name: npm install and cache
           commands:
@@ -45,15 +38,15 @@ blocks:
       prologue:
         commands:
           - checkout
-          - brew tap wix/brew
-          - brew install applesimutils
+          # - brew tap wix/brew
+          # - brew install applesimutils
       jobs:
         - name: unit and integration tests
           commands:
             - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
             - npm test
-        - name: e2e tests
-          commands:
-            - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
-            - npm run detox-build
-            - npm run detox-test
+        #- name: e2e tests
+        #  commands:
+        #    - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
+        #    - npm run detox-build
+        #    - npm run detox-test
