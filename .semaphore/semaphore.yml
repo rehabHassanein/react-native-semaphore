@@ -61,7 +61,6 @@ blocks:
       jobs:
         - name: Fastlane build
           commands:
-            - bundle exec xcversion select 10.2
             # Gym builds and packages iOS apps.
             # See https://docs.fastlane.tools/actions/build_app/
             # and https://shift.infinite.red/simple-react-native-ios-releases-4c28bb53a97b
