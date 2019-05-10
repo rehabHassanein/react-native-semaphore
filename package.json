@@ -7,7 +7,8 @@
     "test": "jest",
     "detox-build": "detox build",
     "detox-test": "detox test",
-    "lint": "eslint **/*.js"
+    "lint": "eslint **/*.js",
+    "fastline-build": "bundle exec fastlane ios build"
   },
   "dependencies": {
     "react": "16.8.6",
