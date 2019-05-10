@@ -42,6 +42,7 @@ blocks:
           # Install dependencies for detox.js
           - brew tap wix/brew
           - brew install applesimutils
+          - npm i detox -g
       jobs:
         - name: unit and integration tests
           commands:
