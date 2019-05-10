@@ -12,7 +12,7 @@ blocks:
           commands:
             # Get the latest version of our source code from GitHub:
             - checkout
-
+            - cache delete node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
             # Restore dependencies from cache. This command will not fail in
             # case of a cache miss. In case of a cache hit, npm install will
             # run very fast.
@@ -42,7 +42,6 @@ blocks:
           # Install dependencies for detox.js
           - brew tap wix/brew
           - brew install applesimutils
-          - npm i detox -g
       jobs:
         - name: unit and integration tests
           commands:
