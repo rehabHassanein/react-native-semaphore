@@ -37,7 +37,9 @@ blocks:
     task:
       prologue:
         commands:
+          # Download source code from GitHub:
           - checkout
+          # Install dependencies for detox.js
           # - brew tap wix/brew
           # - brew install applesimutils
       jobs:
@@ -52,9 +54,18 @@ blocks:
         #    - npm run detox-test
   - name: Build app
     task:
+      env_vars:
+        - name: LANG
+          value: en_US.UTF-8
       prologue:
         commands:
+          # Download source code from GitHub:
           - checkout
+
+          # Restore dependencies from cache. This command will not fail in
+          # case of a cache miss. In case of a cache hit, bundle  install will
+          # complete in about a second.
+          # For more info on caching, see https://docs.semaphoreci.com/article/68-caching-dependencies
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
           - bundle install --path vendor/bundle
           - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
