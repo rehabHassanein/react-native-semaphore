@@ -57,7 +57,7 @@
       },
       "ios.sim.release": {
         "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/ReactNativeSemaphore.app",
-        "build": "xcodebuild -project ios/ReactNativeSemaphore.xcodeproj -scheme ReactNativeSemaphore -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
+        "build": "xcodebuild -project ios/ReactNativeSemaphore.xcodeproj -scheme ReactNativeSemaphore -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -UseModernBuildSystem=NO",
         "type": "ios.simulator",
         "name": "iPhone 7"
       }
