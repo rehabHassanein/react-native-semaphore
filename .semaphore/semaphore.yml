@@ -48,10 +48,10 @@ blocks:
             # Install dependencies for detox.js
             - brew tap wix/brew
             - brew install applesimutils
-            - npm i detox -g
+            - npm install -g detox-cli
             - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
-            - npm run detox-build
-            - npm run detox-test
+            - npm run detox-build-release
+            - npm run detox-test-release
   - name: Build app
     task:
       env_vars:
