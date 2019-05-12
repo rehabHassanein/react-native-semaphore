@@ -12,7 +12,7 @@ The CI pipeline will look like this:
 
 ![CI pipeline on Semaphore](images/ci-pipeline.png)
 
-The example pipeline contains 3 blocks:
+The example pipeline contains 4 blocks:
 
  - Install dependencies
     -  installs and caches all npm dependencies
