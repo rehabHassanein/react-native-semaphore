@@ -14,13 +14,22 @@
         "ignoreComments": true,
         "code": 250
       }
-    ]
+    ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["e2e/*.js", "__tests__/**/*.js"]}]
   },
   "globals": {
     "fetch": true,
     "it": true,
     "expect": true,
     "describe": true,
-    "__DEV__": true
+    "__DEV__": true,
+    "beforeEach": true,
+    "device": true,
+    "by": true,
+    "element": true,
+    "jest": true,
+    "jasmine": true,
+    "beforeAll": true,
+    "afterAll": true
   }
 }

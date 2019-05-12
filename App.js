@@ -48,11 +48,12 @@ export default class App extends Component {
   render() {
     const { isToggled } = this.state;
     return (
-      <View style={styles.container}>
+      <View style={styles.container} testID="app">
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <Switch
+          testID="toggle"
           value={isToggled}
           onChange={this.handleToggle}
         />

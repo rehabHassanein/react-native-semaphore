@@ -10,6 +10,7 @@ exports[`jest snapshot tests renders correctly 1`] = `
       "justifyContent": "center",
     }
   }
+  testID="app"
 >
   <Text
     style={
@@ -56,6 +57,7 @@ exports[`jest snapshot tests renders correctly 1`] = `
         "width": 51,
       }
     }
+    testID="toggle"
     value={false}
   />
 </View>
