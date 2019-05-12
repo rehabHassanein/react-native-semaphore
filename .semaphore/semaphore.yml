@@ -53,27 +53,10 @@ blocks:
             # build and test
             - npm run detox-build-release
             - npm run detox-test-release
-  - name: Build app
-    task:
-      env_vars:
-        - name: LANG
-          value: en_US.UTF-8
-      prologue:
-        commands:
-          # Download source code from GitHub:
-          - checkout
-
-          # Restore dependencies from cache. This command will not fail in
-          # case of a cache miss. In case of a cache hit, bundle  install will
-          # complete in about a second.
-          # For more info on caching, see https://docs.semaphoreci.com/article/68-caching-dependencies
-          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
-          - bundle install --path vendor/bundle
-          - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
-      jobs:
-        - name: Fastlane build
-          commands:
-            # Gym builds and packages iOS apps.
-            # See https://docs.fastlane.tools/actions/build_app/
-            # and https://shift.infinite.red/simple-react-native-ios-releases-4c28bb53a97b
-            - npm run fastline-build
+promotions:
+- name: Build app
+  pipeline_file: release-build.yml
+  auto_promote_on:
+  - result: passed
+    branch:
+    - master
