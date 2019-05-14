@@ -48,8 +48,7 @@ blocks:
             # Install dependencies for detox.js
             - brew tap wix/brew
             - brew install applesimutils
-            - npm install -g detox
-            - npm install -g detox-cli
+            - npm install -g detox@12.7.0
             - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
             # build and test
             - detox build --configuration ios.sim.release
