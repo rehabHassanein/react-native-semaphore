@@ -52,8 +52,8 @@ blocks:
             - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
             - detox clean-framework-cache && detox build-framework-cache
             # build and test
-            - npm run detox-build-release
-            - npm run detox-test-release
+            - detox build --configuration ios.sim.release
+            - detox test --configuration ios.sim.release --cleanup
 promotions:
 - name: Build app
   pipeline_file: release-build.yml
