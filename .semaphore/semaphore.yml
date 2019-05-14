@@ -50,6 +50,7 @@ blocks:
             - brew install applesimutils
             - npm install -g detox
             - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
+            - detox clean-framework-cache
             # build and test
             - npm run detox-build-release
             - npm run detox-test-release
