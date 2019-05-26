@@ -1,4 +1,4 @@
-# Semaphore demo CI/CD pipeline using React Native
+# Semaphore demo CI/CD pipeline using React Native 
 
 Example application and CI/CD pipeline showing how to run a React Native project
 on Semaphore 2.0. (Uses [React Native CLI Quickstart](https://facebook.github.io/react-native/docs/getting-started.html))
